@@ -1,21 +1,16 @@
 import yaml
 
-from api.common.base_api import BaseApi
+from api.common.base_api import BaseApi,get_config
 
 
-with open('../config/api_payload_data.yml', 'r')as f:
-    data = yaml.safe_load(f)['get_User_Version_Upgrade']
-    print(data)
-
-with open('../config/server_config.yml')as f:
-    token_data=yaml.safe_load(f)
-    token=token_data['token'][token_data['default']]
+data,token=get_config()
 
 class Upgrade(BaseApi):
 
     def get_User_Version_Upgrade(self,version_code,lang):
-        data['json']['version_code']=version_code
-        data['json']['lang']=lang
-        data['headers']['Authorization']=token
-        res=self.send(data)
+        api_data=data['get_User_Version_Upgrade']
+        api_data['json']['version_code']=version_code
+        api_data['json']['lang']=lang
+        api_data['headers']['Authorization']=token
+        res=self.send(api_data)
         return res
