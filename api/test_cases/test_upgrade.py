@@ -13,8 +13,14 @@ class TestUpgrade:
     def teardown(self):
         pass
 
-    # @allure.story('')
-    @pytest.mark.parametrize('version_code,lang',[(None,''),(13,''),('','en'),(100,'')])
+    @allure.story('提醒用户升级接口测试')
+    @pytest.mark.parametrize('version_code,lang',
+                             [(None,''),(13,'en'),(100,'')],
+                             ids=[
+                                 '版本号传None,语言传空',
+                                 '需要升级的版本号,语言传en',
+                                 '版本号大于线上版本,语言传空'
+                             ])
     def test_get_User_Version_Upgrade(self,version_code,lang):
         res = self.upgrage.get_User_Version_Upgrade(version_code, lang).json()
 

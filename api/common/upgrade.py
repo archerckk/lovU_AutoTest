@@ -1,5 +1,3 @@
-import yaml
-
 from api.common.base_api import BaseApi,get_config
 
 
