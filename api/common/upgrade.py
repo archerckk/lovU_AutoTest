@@ -5,8 +5,8 @@ data,token=get_config()
 
 class Upgrade(BaseApi):
 
-    def get_User_Version_Upgrade(self,version_code,lang):
-        api_data=data['get_User_Version_Upgrade']
+    def get_user_version_upgrade(self,version_code,lang):
+        api_data=data['get_user_version_upgrade']
         api_data['json']['version_code']=version_code
         api_data['json']['lang']=lang
         api_data['headers']['Authorization']=token

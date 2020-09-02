@@ -1,4 +1,4 @@
-get_User_Version_Upgrade:
+get_user_version_upgrade:
   method: post
   url: "{{host}}/api/user/getUserVersionUpgrade"
   headers:
@@ -6,3 +6,11 @@ get_User_Version_Upgrade:
   json:
     lang: "{lang}"
     version_code: "{version_code}"
+
+get_video_card:
+  method: post
+  url: "{{host}}/api/user/v1/video_cards"
+  headers:
+    Authorization: "{token}"
+  json:
+    card_type: "{card_type}"

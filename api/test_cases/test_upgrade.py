@@ -21,8 +21,8 @@ class TestUpgrade:
                                  '需要升级的版本号,语言传en',
                                  '版本号大于线上版本,语言传空'
                              ])
-    def test_get_User_Version_Upgrade(self,version_code,lang):
-        res = self.upgrage.get_User_Version_Upgrade(version_code, lang).json()
+    def test_get_user_version_upgrade(self, version_code, lang):
+        res = self.upgrage.get_user_version_upgrade(version_code, lang).json()
 
         if  res['code']==202:
             raise Exception('后台没有配置最新版本信息')
