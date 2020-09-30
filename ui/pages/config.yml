@@ -1,0 +1,12 @@
+nene:
+  #  deviceName: 127.0.0.1:7555
+  platformName: Android
+  #  platformVersion: 6.0.1
+  udid: d125de5e
+  appPackage: com.social.nene
+  appActivity: com.funny.lovu.splash.LaunchActivity
+  noReset: true
+  unicodeKeyBoard: true
+  resetKeyBoard: true
+  server_url: "127.0.0.1:4723"
+#  skipServerInstallation: true

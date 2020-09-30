@@ -1,0 +1,4 @@
+wait_finish:
+  - by: xpath
+    locator: //*[@text="Cancel"]
+    action: click

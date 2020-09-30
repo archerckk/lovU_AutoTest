@@ -1,3 +1,5 @@
+import yaml
+from appium.webdriver import WebElement
 from appium.webdriver.webdriver import WebDriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions
@@ -16,6 +18,18 @@ class BasePage:
 
         return element
 
+    def steps(self, path, key,name=None):
+        with open(path)as f:
+            steps: list = yaml.safe_load(f)[key]
+        element = None
+        for step in steps:
+            if 'by' in step.keys():
+                element = self._find(step['by'], step['locator'])
+                if 'action' in step.keys():
+                    action = step['action']
+                    if action == 'click':
+                        element.click()
+
     def _finds(self, by, locator=None):
         # 兼容元组跟多元素传入
 
@@ -30,8 +44,12 @@ class BasePage:
         # return element
         return WebDriverWait(self._driver, 40).until(expected_conditions.presence_of_element_located(by))
 
-    def _finds_focus(self,by):
+    def _finds_focus(self, by):
         return WebDriverWait(self._driver, 40).until(expected_conditions.visibility_of_all_elements_located(by))
+
+
+    def _wait_disappear(self,by):
+        return WebDriverWait(self._driver,40).until_not(expected_conditions.presence_of_all_elements_located(by))
 
     def confirm_element_disappear(self, by, locator=None):
         # 确认元素删除成功

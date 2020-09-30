@@ -12,10 +12,10 @@ class App(BasePage):
 
     def start(self):
         if self._driver is None:
-            with open('../pages/phone.yml')as f:
+            with open('../pages/config.yml')as f:
                 self.desired_caps = yaml.safe_load(f)['nene']
-                self.desired_caps['udid'] = os.getenv('udid', None)
-            self._driver = webdriver.Remote('http://10.8.8.186:4444/wd/hub', self.desired_caps)
+                # self.desired_caps['udid'] = os.getenv('udid', None)
+            self._driver = webdriver.Remote(f'http://{self.desired_caps["server_url"]}/wd/hub', self.desired_caps)
             self._driver.implicitly_wait(10)
 
         else:

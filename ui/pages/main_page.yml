@@ -1,0 +1,9 @@
+switch_to_random :
+  - by: xpath
+    locator: //*[@text="Random"]
+    action: click
+
+feature_video_invite:
+  - by: xpath
+    locator: //*[@class="android.view.ViewGroup"]//*[@class="android.widget.ImageView"][3]
+    action: click

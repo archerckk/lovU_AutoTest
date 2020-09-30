@@ -22,6 +22,7 @@ mumu_wework:
 
 nene:
   #  deviceName: 127.0.0.1:7555
+  udid: d125de5e
   platformName: Android
   #  platformVersion: 6.0.1
   appPackage: com.social.nene
@@ -30,3 +31,4 @@ nene:
   unicodeKeyBoard: true
   resetKeyBoard: true
 #  skipServerInstallation: true
+

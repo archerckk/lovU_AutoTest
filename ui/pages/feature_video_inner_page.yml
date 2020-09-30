@@ -1,0 +1,15 @@
+send_gift:
+  - by: xpath
+    locator: //*[@class='android.widget.LinearLayout']/*[@class='android.widget.FrameLayout']/*[@class='android.widget.ImageView']
+    action: click
+  - by: xpath
+    locator: //*[@text='cake']
+    action: click
+  - by: xpath
+    locator: //*[@text='Send']
+    action: click
+
+end_video:
+  - by: xpath
+    locator: //*[@text='Confirm']
+    action: click
