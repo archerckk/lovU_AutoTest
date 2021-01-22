@@ -17,7 +17,7 @@ class TestUpgrade:
     @pytest.mark.parametrize('version_code,lang',
                              [(None,''),(13,'en'),(100,'')],
                              ids=[
-                                 '版本号传None,语言传空',
+                                 '版本号传None,语言传空1',
                                  '需要升级的版本号,语言传en',
                                  '版本号大于线上版本,语言传空'
                              ])
